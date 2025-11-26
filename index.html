@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gamified Sustainability Board Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Eco-Town Builder</h1>
+            <p>Build a sustainable future by making eco-friendly choices!</p>
+        </header>
+        
+        <div class="game-grid">
+            <div class="board">
+                <h2>Your Eco-Town</h2>
+                
+                <div class="town-grid">
+                    <div class="building" id="energy-building">
+                        <div class="building-icon">⚡</div>
+                        <div class="building-title">Energy Plant</div>
+                        <div class="building-desc">Power generation for your town</div>
+                        <div class="building-status" id="energy-status">Status: Not upgraded</div>
+                    </div>
+                    
+                    <div class="building" id="waste-building">
+                        <div class="building-icon">♻️</div>
+                        <div class="building-title">Waste Center</div>
+                        <div class="building-desc">Managing waste and recycling</div>
+                        <div class="building-status" id="waste-status">Status: Not upgraded</div>
+                    </div>
+                    
+                    <div class="building" id="water-building">
+                        <div class="building-icon">💧</div>
+                        <div class="building-title">Water Reserve</div>
+                        <div class="building-desc">Water conservation and management</div>
+                        <div class="building-status" id="water-status">Status: Not upgraded</div>
+                    </div>
+                    
+                    <div class="building" id="carbon-building">
+                        <div class="building-icon">🌳</div>
+                        <div class="building-title">Transport Hub</div>
+                        <div class="building-desc">Low-carbon transportation</div>
+                        <div class="building-status" id="carbon-status">Status: Not upgraded</div>
+                    </div>
+                </div>
+                
+                <div class="town-health">
+                    <h3>Town Sustainability</h3>
+                    <div class="sustainability-meter">
+                        <div class="meter-fill" id="sustainability-meter"></div>
+                    </div>
+                    <div id="sustainability-score">0/100 points</div>
+                    <div class="unsustainable-tracker" id="unsustainable-tracker">
+                        <div class="unsustainable-dot" id="dot-1"></div>
+                        <div class="unsustainable-dot" id="dot-2"></div>
+                        <div class="unsustainable-dot" id="dot-3"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sidebar">
+                <div class="card challenge-card">
+                    <h3>Current Challenge</h3>
+                    <p id="challenge-text">Welcome to Eco-Town Builder! Click 'New Turn' to draw your first challenge card.</p>
+                    
+                    <div class="motivation-quote" id="motivation-quote">
+                        <p id="quote-text"></p>
+                        <div class="author" id="quote-author"></div>
+                    </div>
+                    
+                    <div class="warning-message" id="warning-message">
+                        <strong>⚠️ Warning!</strong> You've made an unsustainable choice. Each unsustainable action harms your town's long-term health.
+                    </div>
+                    
+                    <div id="educational-info" class="educational-info" style="display: none;">
+                        <div class="info-title">Did You Know?</div>
+                        <div id="info-content"></div>
+                        <div class="info-impact">
+                            <strong>Impact:</strong> <span id="impact-content"></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h3>Actions</h3>
+                    <div class="actions">
+                        <button id="new-turn" class="primary-btn">New Turn (Draw Card)</button>
+                        <button id="roll-dice" class="primary-btn" disabled>Roll Dice for Outcome</button>
+                        <button id="choose-sustainable" class="sustainable-btn" disabled>Choose Sustainable Action</button>
+                        <button id="choose-unsustainable" class="unsustainable-btn" disabled>Choose Unsustainable Action</button>
+                    </div>
+                </div>
+                
+                <div class="card dice-container">
+                    <h3>Dice Roll</h3>
+                    <div class="dice" id="dice-result">🎲</div>
+                    <div id="card-result"></div>
+                </div>
+                
+                <div class="card">
+                    <h3>Game Progress</h3>
+                    <div id="score">
+                        <p>Sustainability Points: <span id="points">0</span></p>
+                        <p>Sustainable Choices: <span id="sustainable-count">0</span></p>
+                        <p>Unsustainable Choices: <span id="unsustainable-count">0</span></p>
+                        <p>Turns Completed: <span id="turns">0</span></p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h3>Game Log</h3>
+                    <div id="log" class="game-log">
+                        <div class="log-entry">
+                            <span class="log-time">[Game Start]</span> Welcome to Eco-Town Builder! Make sustainable choices to help your town thrive.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="celebrate" id="celebrate">
+        <div class="win-message">
+            <h2>Congratulations! 🎉</h2>
+            <p>Your town has reached full sustainability with <span id="final-points">0</span> points!</p>
+            <p>You made <span id="final-sustainable">0</span> sustainable choices and <span id="final-unsustainable">0</span> unsustainable choices.</p>
+            <button class="primary-btn" onclick="location.reload()">Play Again</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
